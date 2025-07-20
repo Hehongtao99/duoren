@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.example.demo.model
+  configuration:
+    map-underscore-to-camel-case: true # 这一行表示已经开启了驼峰命名转换
+  global-config:
+    db-config:
+      id-type: auto
+    banner: false
+
+logging:
+  level:
+    root: INFO
+    com:
+      example:
+        demo: DEBUG
+      baomidou:
+        mybatisplus: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
