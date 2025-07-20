@@ -1,15 +1,25 @@
 package com.example.demo.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.common.PageResult;
 import com.example.demo.common.Result;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.model.dto.GetUserByIdDTO;
+import com.example.demo.model.dto.UserPageQueryDTO;
 import com.example.demo.model.vo.GetUserByIdVO;
 import com.example.demo.model.vo.GetUserNameByIdVO;
+import com.example.demo.model.vo.UserListItemVO;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
@@ -49,5 +59,45 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         getUserNameByIdVO.setUserName(userName);
 
         return Result.success(getUserNameByIdVO);
+    }
+    
+    /**
+     * 分页查询用户列表
+     * @param queryDTO 查询参数
+     * @return 分页结果
+     */
+    @Override
+    public PageResult<UserListItemVO> pageUsers(UserPageQueryDTO queryDTO) {
+        try {
+            // 1. 构建查询条件
+            LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+            
+            // 2. 添加条件过滤
+            if (StringUtils.hasText(queryDTO.getUserName())) {
+                queryWrapper.like(User::getUserName, queryDTO.getUserName());
+            }
+            
+            if (StringUtils.hasText(queryDTO.getEmail())) {
+                queryWrapper.like(User::getEmail, queryDTO.getEmail());
+            }
+            
+            // 3. 创建分页对象并执行查询
+            Page<User> page = new Page<>(queryDTO.getCurrent(), queryDTO.getSize());
+            Page<User> userPage = this.page(page, queryWrapper);
+
+            // 4. 使用Stream API将User实体转换为VO对象
+            List<UserListItemVO> voList = userPage.getRecords().stream()
+                    .map(user -> UserListItemVO.builder()
+                            .id(user.getId())
+                            .userName(user.getUserName())
+                            .email(user.getEmail())
+                            .build())
+                    .collect(Collectors.toList());
+            
+            // 5. 使用PageResult.success方法创建分页结果
+            return PageResult.success(userPage, voList);
+        } catch (Exception e) {
+            return PageResult.error("查询用户列表失败：" + e.getMessage());
+        }
     }
 }
