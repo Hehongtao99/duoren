@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,12 +18,27 @@ import lombok.NoArgsConstructor;
 @TableName("users")
 public class User {
     //
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "user_id", type = IdType.AUTO)
+    private Long userId;
 
     @TableField("username")
     private String userName;
 
     @TableField("email")
     private String email;
+
+    @TableField("address")
+    private String address;
+
+    @TableField("age")
+    private int age;
+
+    @TableField("height_cm")
+    private BigDecimal heightCm;
+
+    @TableField("weight_kg")
+    private BigDecimal weightKg;
+
+    @TableField("gpa")
+    private BigDecimal gpa ;
 } 
