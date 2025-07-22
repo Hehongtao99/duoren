@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.model.dataobject;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@TableName("user")
+@TableName("users")
 public class User {
     //
     @TableId(value = "id", type = IdType.AUTO)
