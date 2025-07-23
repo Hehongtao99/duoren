@@ -39,7 +39,7 @@ public class UserController {
         return userService.getUserNameById(getUserByIdDTO);
     }
     @PutMapping("/update")
-    public Result<UpdateUserVO> updateUser(UpdateUserDTO updateUserDTO){
+    public Result<?> updateUser(UpdateUserDTO updateUserDTO){
         return userService.updateUser(updateUserDTO);
     }
     @DeleteMapping("/delete")
@@ -47,7 +47,8 @@ public class UserController {
         return userService.deleteUser(deleteUserDTO);
     }
 
-
-
-
+    @GetMapping("/page")
+    public PageResult<UserListItemVO> getUserByPage(UserPageQueryDTO userPageQueryDTO) {
+        return userService.getUserByPage(userPageQueryDTO);
+    }
 }

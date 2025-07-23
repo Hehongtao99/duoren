@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/UpdateUserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/测试/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/DeleteUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/DeleteUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetUserByIdDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetUserByIdDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/UpdateUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/UpdateUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetUserByIdVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetUserByIdVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetUserNameByIdVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetUserNameByIdVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/UserListItemVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/UserListItemVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/enums/ResponseCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/enums/ResponseCodeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
@@ -34,7 +28,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Hehongtao99/duoren.git",
-    "accountId": "3d8c621f-870c-43c8-9f78-9bf6390f2c26"
+    "accountId": "fdd35124-8e19-48bf-9f3a-87cd1b48dc08"
   }
 }]]></component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -54,7 +48,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="30D5dSMdQehAvzuk8d3RcV0qiom" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -100,7 +94,7 @@
       <recent name="com.example.demo.enums" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev (1)">
+  <component name="RunManager" selected="Spring Boot.DemoApplication">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="demo" />
@@ -150,12 +144,15 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="" />
@@ -165,6 +162,7 @@
       <updated>1753149390317</updated>
       <workItem from="1753149391943" duration="4637000" />
       <workItem from="1753192412236" duration="335000" />
+      <workItem from="1753260175834" duration="895000" />
     </task>
     <servers />
   </component>
