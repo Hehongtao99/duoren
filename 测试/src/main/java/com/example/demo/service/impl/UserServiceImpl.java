@@ -11,16 +11,15 @@ import com.example.demo.exception.BizException;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.dataobject.User;
 
-import com.example.demo.model.dto.DeleteUserDTO;
-import com.example.demo.model.dto.GetUserByIdDTO;
-import com.example.demo.model.dto.UpdateUserDTO;
-import com.example.demo.model.dto.UserPageQueryDTO;
+import com.example.demo.model.dto.*;
 import com.example.demo.model.vo.GetUserByIdVO;
 import com.example.demo.model.vo.GetUserNameByIdVO;
 import com.example.demo.model.vo.UpdateUserVO;
 import com.example.demo.model.vo.UserListItemVO;
 import com.example.demo.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -40,7 +39,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Result<List<UserListItemVO>> userlistitem() {
         List<User> users = userMapper.selectList(null);
-        List<UserListItemVO> collect = users.stream().map(user -> UserListItemVO.builder()
+        List<UserListItemVO> collect = users.stream().map(user ->
+                        UserListItemVO.builder()
                         .userId(user.getUserId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
@@ -63,13 +63,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public Result<GetUserByIdVO> getUserById(GetUserByIdDTO getUserByIdDTO) {
         User user = userMapper.selectById(getUserByIdDTO.getUserId());
 
-        GetUserByIdVO getUserByIdVO = GetUserByIdVO.builder()
-                .userId(user.getUserId())
-                .userName(user.getUserName())
-                .email(user.getEmail())
-                .build();
+        GetUserByIdVO getUserByIdVO1 = new GetUserByIdVO();
+        BeanUtils.copyProperties(user,getUserByIdVO1);
 
-        return Result.success(getUserByIdVO);
+//        GetUserByIdVO getUserByIdVO = GetUserByIdVO.builder()
+//                .userId(user.getUserId())
+//                .userName(user.getUserName())
+//                .email(user.getEmail())
+//                .build();
+
+        return Result.success(getUserByIdVO1);
     }
 
     @Override
@@ -98,17 +101,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         Long userId = updateUserDTO.getUserId();
         User user = userMapper.selectById(userId);
+
         if(Objects.isNull(user)){
             throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
         }
 
         user.setUserName(updateUserDTO.getUserName());
         user.setEmail(updateUserDTO.getEmail());
+        //mybatis
+        //先删除，再新增21
         userMapper.updateById(user);
         return Result.success();
     }
 
     @Override
+    //开启事务
     @Transactional(rollbackFor = Exception.class)
     public boolean deleteUser(DeleteUserDTO deleteUserDTO) {
 
@@ -129,16 +136,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
         wrapper.like(StrUtil.isNotBlank(userName), User::getUserName, userName)
-                .like(StrUtil.isNotBlank(email), User::getEmail, email);
+                .like(StrUtil.isNotBlank(email), User::getEmail, email)
+                ;
 
         Page<User> Page = new Page<>(current, size);
 
         Page<User> userPage = userMapper.selectPage(Page, wrapper);
         if(Objects.isNull(userPage)){
-            throw new BizException(ResponseCodeEnum.SYSTEM_ERROR);
+            throw new BizException(ResponseCodeEnum.PAGE_NOT_FOUND);
         }
 
-        List<UserListItemVO> collect = userPage.getRecords().stream().map(user -> UserListItemVO.builder()
+        List<UserListItemVO> collect = userPage.getRecords().stream().
+                map(user -> UserListItemVO.builder()
                         .userId(user.getUserId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
@@ -148,8 +157,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                         .weightKg(user.getWeightKg())
                         .gpa(user.getGpa())
                         .build())
-                .collect(Collectors.toList());
+                .toList();
 
         return PageResult.success(userPage,collect);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Result<?> AddUser(AddUserDTO dto) {
+        User user = new User();
+        BeanUtils.copyProperties(dto,user);
+
+        try {
+            int insert = userMapper.insert(user);
+            return Result.success();
+        }catch (Exception e){
+            log.error("添加失败");
+        }
+
+
+        return Result.success();
     }
 }

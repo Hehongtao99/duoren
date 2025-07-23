@@ -14,6 +14,9 @@ public enum ResponseCodeEnum implements BaseExceptionInterface {
 
     // ----------- 业务异常状态码 -----------
     USER_NOT_FOUND("KV-20000", "该用户不存在"),
+    //字典
+    PAGE_NOT_FOUND("KV-20001", "分页数据不存在"),
+
     ;
 
     // 异常码
