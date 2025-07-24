@@ -34,7 +34,7 @@ public class Note {
      * 创建用户ID
      */
     @TableField("user_id")
-    private Integer userId;
+    private Integer UserId;
 
     /**
      * 内容详情ID

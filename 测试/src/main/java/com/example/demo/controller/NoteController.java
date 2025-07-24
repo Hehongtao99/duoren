@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.PageResult;
 import com.example.demo.common.Result;
+import com.example.demo.model.dto.NotePageQueryDTO;
 import com.example.demo.model.vo.NoteListItemVO;
 import com.example.demo.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +28,14 @@ public class NoteController {
         return noteService.NotelistItem();
     }
 //
-//
-//    /**
-//     * 分页查询文章
-//     */
-//    @GetMapping("/page")
+
+    /**
+     * 分页查询文章
+     */
+    @GetMapping("/page")
+    public PageResult<NoteListItemVO> pageQuery(NotePageQueryDTO dto){
+        return noteService.getNoteByPage(dto);
+    }
 //
 //
 //    /**

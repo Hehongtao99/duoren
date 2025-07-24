@@ -17,7 +17,7 @@ public class NotePageQueryDTO extends PageParam {
 
     private String noteName;
 
-    Category category;
+    private Integer categoryId;
 
 
 }

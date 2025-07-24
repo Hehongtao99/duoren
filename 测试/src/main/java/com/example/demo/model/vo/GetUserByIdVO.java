@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class GetUserByIdVO {
 
-    private Long userId;
+    private Long Id;
 
     private String userName;
 

@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class DeleteUserDTO {
-    private Long userId;
+    private Long Id;
 }

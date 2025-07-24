@@ -38,7 +38,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         List<User> users = userMapper.selectList(null);
         List<UserListItemVO> collect = users.stream().map(user ->
                         UserListItemVO.builder()
-                        .id(user.getUserId())
+                        .id(user.getId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
                         .address(user.getAddress())
@@ -58,13 +58,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Result<GetUserByIdVO> getUserById(GetUserByIdDTO getUserByIdDTO) {
-        User user = userMapper.selectById(getUserByIdDTO.getUserId());
+        User user = userMapper.selectById(getUserByIdDTO.getId());
 
         GetUserByIdVO getUserByIdVO1 = new GetUserByIdVO();
         BeanUtils.copyProperties(user,getUserByIdVO1);
 
 //        GetUserByIdVO getUserByIdVO = GetUserByIdVO.builder()
-//                .userId(user.getUserId())
+//                .Id(user.getId())
 //                .userName(user.getUserName())
 //                .email(user.getEmail())
 //                .build();
@@ -74,7 +74,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Result<GetUserNameByIdVO> getUserNameById(GetUserByIdDTO getUserByIdDTO) {
-        User user = userMapper.selectNameById(getUserByIdDTO.getUserId());
+        User user = userMapper.selectNameById(getUserByIdDTO.getId());
         GetUserNameByIdVO getUserNameByIdVO = GetUserNameByIdVO.builder().userName(user.getUserName()).build();
         return Result.success(getUserNameByIdVO);
     }
@@ -82,22 +82,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Result<?> updateUser(UpdateUserDTO updateUserDTO) {
 //        User user = new User();
-//        user.setUserId(updateUserDTO.getUserId());
+//        user.setId(updateUserDTO.getId());
 //        user.setUserName(updateUserDTO.getUserName());
 //        user.setEmail(updateUserDTO.getEmail());
 //
 //        userMapper.updateById(user);
 //
 //        UpdateUserVO updateUserVO = UpdateUserVO.builder()
-//                .userId(user.getUserId())
+//                .Id(user.getId())
 //                .userName(user.getUserName())
 //                .email(user.getEmail())
 //                .build();
 //
 //        return Result.success(updateUserVO);
 
-        Long userId = updateUserDTO.getUserId();
-        User user = userMapper.selectById(userId);
+        Long Id = updateUserDTO.getId();
+        User user = userMapper.selectById(Id);
 
         if(Objects.isNull(user)){
             throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
@@ -116,12 +116,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Transactional(rollbackFor = Exception.class)
     public boolean deleteUser(DeleteUserDTO deleteUserDTO) {
 
-        Long userId = deleteUserDTO.getUserId();
-        User user = userMapper.selectById(userId);
+        Long Id = deleteUserDTO.getId();
+        User user = userMapper.selectById(Id);
         if(Objects.isNull(user)){
             throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
         }
-        return userMapper.deleteById(deleteUserDTO.getUserId())>0;
+        return userMapper.deleteById(deleteUserDTO.getId())>0;
     }
 
     @Override
@@ -145,7 +145,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         List<UserListItemVO> collect = userPage.getRecords().stream().
                 map(user -> UserListItemVO.builder()
-                        .id(user.getUserId())
+                        .id(user.getId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
                         .address(user.getAddress())

@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class GetUserByIdDTO {
-    private Long userId;
+    private Long Id;
 }

@@ -20,7 +20,7 @@ public class User {
      * 主键ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Long userId;
+    private Long Id;
 
     /**
      * 用户名

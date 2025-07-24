@@ -150,7 +150,7 @@ export default {
         categoryId: null,
         tagIds: [],
         noteContent: '',
-        userId: 1 // 暂时固定为1，实际应该从登录用户获取
+        Id: 1 // 暂时固定为1，实际应该从登录用户获取
       },
       rules: {
         noteName: [
@@ -239,7 +239,7 @@ export default {
         categoryId: note.categoryId,
         tagIds: note.tags.map(tag => tag.tagId),
         noteContent: '', // 需要通过详情接口获取
-        userId: note.userId
+        Id: note.Id
       }
       this.loadNoteContent(note.noteId)
       this.dialogVisible = true
@@ -291,7 +291,7 @@ export default {
         categoryId: null,
         tagIds: [],
         noteContent: '',
-        userId: 1
+        Id: 1
       }
       this.$refs.noteFormRef?.resetFields()
     }

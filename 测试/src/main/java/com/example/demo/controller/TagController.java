@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.Result;
 import com.example.demo.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +15,13 @@ public class TagController {
     @Autowired
     private TagService tagService;
 //
-//    /**
-//     * 获取所有标签
-//     */
-//    @GetMapping("/list")
-//
+    /**
+     * 获取所有标签
+     */
+    @GetMapping("/list")
+    public Result<?> getTagByIdVO(){
+        return Result.success(tagService.list());
+    }
 //
 //    /**
 //     * 添加标签

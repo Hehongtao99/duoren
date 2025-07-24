@@ -23,16 +23,16 @@ public class UserController {
         return userService.userlistitem();
 
     }
-    @GetMapping("/detail/{userId}")
-    public Result<GetUserByIdVO> getUserById(@PathVariable Long userId){
+    @GetMapping("/detail/{Id}")
+    public Result<GetUserByIdVO> getUserById(@PathVariable Long Id){
         GetUserByIdDTO getUserByIdDTO = new GetUserByIdDTO();
-        getUserByIdDTO.setUserId(userId);
+        getUserByIdDTO.setId(Id);
         return userService.getUserById(getUserByIdDTO);
     }
     @GetMapping("/getUserNameById")
-    public Result<GetUserNameByIdVO> getUserNameById(@RequestParam Long userId){
+    public Result<GetUserNameByIdVO> getUserNameById(@RequestParam Long Id){
         GetUserByIdDTO getUserByIdDTO = new GetUserByIdDTO();
-        getUserByIdDTO.setUserId(userId);
+        getUserByIdDTO.setId(Id);
         return userService.getUserNameById(getUserByIdDTO);
     }
     @PutMapping("/update")
@@ -40,10 +40,10 @@ public class UserController {
         return userService.updateUser(updateUserDTO);
     }
 
-    @DeleteMapping("/delete/{userId}")
-    public  boolean deleteUser(@PathVariable Long userId){
+    @DeleteMapping("/delete/{Id}")
+    public  boolean deleteUser(@PathVariable Long Id){
         DeleteUserDTO deleteUserDTO = new DeleteUserDTO();
-        deleteUserDTO.setUserId(userId);
+        deleteUserDTO.setId(Id);
         return userService.deleteUser(deleteUserDTO);
     }
 

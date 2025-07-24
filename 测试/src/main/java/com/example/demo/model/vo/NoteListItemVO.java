@@ -30,29 +30,31 @@ public class NoteListItemVO {
      * 创建用户ID
      */
 
-    private Integer userId;
+//    private Integer Id;
 
-    /**
-     * 内容详情ID
-     */
+    private String userName;
+//    /**
+//     * 内容详情ID
+//     */
+//
+//    private Integer contentDetailId;
 
-    private Integer contentDetailId;
+//    /**
+//     * 分类ID
+//     */
+//
+//    private Integer categoryId;
 
-    /**
-     * 分类ID
-     */
-
-    private Integer categoryId;
-
+    private String categoryName;
     /**
      * 创建时间
      */
 
     private LocalDateTime createTime;
 
-    /**
-     * 更新时间
-     */
-
-    private LocalDateTime updateTime;
+//    /**
+//     * 更新时间
+//     */
+//
+//    private LocalDateTime updateTime;
 }

@@ -119,7 +119,7 @@ export default {
 
     // 编辑表单
     const editForm = reactive({
-      userId: null,
+      Id: null,
       userName: '',
       email: '',
       address: '',
@@ -188,7 +188,7 @@ export default {
     // 处理编辑
     const handleEdit = (row) => {
       console.log('编辑用户，row:', row, 'row.id:', row.id)
-      editForm.userId = row.id
+      editForm.Id = row.id
       editForm.userName = row.userName
       editForm.email = row.email
       editForm.address = row.address
