@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserListItemVO {
-    private Long userId;
+    private Long id;
 
     private String userName;
 

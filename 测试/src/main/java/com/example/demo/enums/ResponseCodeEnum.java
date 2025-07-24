@@ -17,6 +17,14 @@ public enum ResponseCodeEnum implements BaseExceptionInterface {
     //字典
     PAGE_NOT_FOUND("KV-20001", "分页数据不存在"),
 
+    // ----------- 文章相关异常状态码 -----------
+    NOTE_NOT_FOUND("KV-30000", "文章不存在"),
+    CATEGORY_NOT_FOUND("KV-30001", "分类不存在"),
+    TAG_NOT_FOUND("KV-30002", "标签不存在"),
+    NOTE_CONTENT_EMPTY("KV-30003", "文章内容不能为空"),
+    CATEGORY_NAME_EXISTS("KV-30004", "分类名称已存在"),
+    TAG_NAME_EXISTS("KV-30005", "标签名称已存在"),
+
     ;
 
     // 异常码

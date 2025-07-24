@@ -1,7 +1,7 @@
 package com.example.demo.exception;
 
 import com.example.demo.enums.ResponseCodeEnum;
-import com.example.demo.response.Response;
+import com.example.demo.common.Response;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;

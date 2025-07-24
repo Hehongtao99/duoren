@@ -6,65 +6,29 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * 标签表 DO对象
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@TableName("users")
-public class User {
-
+@TableName("tag")
+public class Tag {
+    
     /**
      * 主键ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private Integer id;
 
     /**
-     * 用户名
+     * 标签名称
      */
-    @TableField("username")
-    private String userName;
-
-    /**
-     * 邮箱
-     */
-    @TableField("email")
-    private String email;
-
-    /**
-     * 地址
-     */
-    @TableField("address")
-    private String address;
-
-    /**
-     * 年龄
-     */
-    @TableField("age")
-    private Integer age;
-
-    /**
-     * 身高(厘米)
-     */
-    @TableField("height_cm")
-    private BigDecimal heightCm;
-
-    /**
-     * 体重(公斤)
-     */
-    @TableField("weight_kg")
-    private BigDecimal weightKg;
-
-    /**
-     * 绩点
-     */
-    @TableField("gpa")
-    private BigDecimal gpa;
-
-
+    @TableField("tag_name")
+    private String tagName;
 
     /**
      * 创建时间

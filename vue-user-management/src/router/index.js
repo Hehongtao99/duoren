@@ -15,6 +15,26 @@ const routes = [
     path: '/user/:id',
     name: 'UserDetail',
     component: () => import('../views/UserDetail.vue')
+  },
+  {
+    path: '/notes',
+    name: 'NoteList',
+    component: () => import('../views/NoteList.vue')
+  },
+  {
+    path: '/note/:id',
+    name: 'NoteDetail',
+    component: () => import('../views/NoteDetail.vue')
+  },
+  {
+    path: '/categories',
+    name: 'CategoryManage',
+    component: () => import('../views/CategoryManage.vue')
+  },
+  {
+    path: '/tags',
+    name: 'TagManage',
+    component: () => import('../views/TagManage.vue')
   }
 ]
 
@@ -23,4 +43,4 @@ const router = createRouter({
   routes
 })
 
-export default router 
+export default router

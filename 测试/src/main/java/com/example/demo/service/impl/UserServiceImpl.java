@@ -41,7 +41,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         List<User> users = userMapper.selectList(null);
         List<UserListItemVO> collect = users.stream().map(user ->
                         UserListItemVO.builder()
-                        .userId(user.getUserId())
+                        .id(user.getId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
                         .address(user.getAddress())
@@ -148,7 +148,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         List<UserListItemVO> collect = userPage.getRecords().stream().
                 map(user -> UserListItemVO.builder()
-                        .userId(user.getUserId())
+                        .id(user.getId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
                         .address(user.getAddress())
