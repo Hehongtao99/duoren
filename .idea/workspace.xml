@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.cache/.Apifox_Helper/.toolWindow.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/AddCategroyDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetCategoryByIdDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetNoteByIdDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/UpdateCategroyDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetCategoryByIdVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/NoteListItemVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="//todo">
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/NotePageQueryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/NoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/TagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/TagController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/UpdateUserVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/NoteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/NoteServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,9 +166,30 @@
       <workItem from="1753149391943" duration="4637000" />
       <workItem from="1753192412236" duration="335000" />
     </task>
+    <task id="LOCAL-00001" summary="//todo">
+      <option name="closed" value="true" />
+      <created>1753340891786</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753340891786</updated>
+    </task>
+    <task id="LOCAL-00002" summary="//todo">
+      <option name="closed" value="true" />
+      <created>1753341361333</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753341361333</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="//todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="//todo" />
   </component>
 </project>

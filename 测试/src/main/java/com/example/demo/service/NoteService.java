@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.common.PageResult;
 import com.example.demo.common.Result;
 import com.example.demo.model.dataobject.Note;
+import com.example.demo.model.dto.NotePageQueryDTO;
 import com.example.demo.model.vo.NoteListItemVO;
 
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.List;
  */
 public interface NoteService extends IService<Note> {
     Result<List<NoteListItemVO>> NotelistItem();
+
+    PageResult<NoteListItemVO> getNoteByPage(NotePageQueryDTO notePageQueryDTO);
     
 
 }
