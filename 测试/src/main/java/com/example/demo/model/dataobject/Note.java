@@ -66,4 +66,5 @@ public class Note {
     @TableLogic(value = "0", delval = "1")
     @TableField("deleted")
     private Integer deleted;
+
 }

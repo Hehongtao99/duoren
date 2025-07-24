@@ -12,7 +12,7 @@ public interface UserMapper extends BaseMapper<User> {
     default User selectNameById(Long id){
         //条件构造器，用来构造条件的
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(User::getId,id);
+        wrapper.eq(User::getUserId,id);
         //where id = "1"
 
         return this.selectOne(wrapper);

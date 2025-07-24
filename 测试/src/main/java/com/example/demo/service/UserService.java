@@ -7,13 +7,11 @@ import com.example.demo.model.dataobject.User;
 import com.example.demo.model.dto.*;
 import com.example.demo.model.vo.GetUserByIdVO;
 import com.example.demo.model.vo.GetUserNameByIdVO;
-import com.example.demo.model.vo.UpdateUserVO;
 import com.example.demo.model.vo.UserListItemVO;
 
 import java.util.List;
 
 public interface UserService extends IService<User> {
-
     Result<List<UserListItemVO>> userlistitem();
 
     Result<GetUserByIdVO> getUserById(GetUserByIdDTO getUserByIdDTO);
@@ -27,4 +25,6 @@ public interface UserService extends IService<User> {
     PageResult<UserListItemVO> getUserByPage(UserPageQueryDTO userPageQueryDTO);
 
     Result<?> AddUser(AddUserDTO dto);
+
+
 }

@@ -14,15 +14,12 @@ import com.example.demo.model.dataobject.User;
 import com.example.demo.model.dto.*;
 import com.example.demo.model.vo.GetUserByIdVO;
 import com.example.demo.model.vo.GetUserNameByIdVO;
-import com.example.demo.model.vo.UpdateUserVO;
 import com.example.demo.model.vo.UserListItemVO;
 import com.example.demo.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +38,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         List<User> users = userMapper.selectList(null);
         List<UserListItemVO> collect = users.stream().map(user ->
                         UserListItemVO.builder()
-                        .id(user.getId())
+                        .id(user.getUserId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
                         .address(user.getAddress())
@@ -148,7 +145,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         List<UserListItemVO> collect = userPage.getRecords().stream().
                 map(user -> UserListItemVO.builder()
-                        .id(user.getId())
+                        .id(user.getUserId())
                         .userName(user.getUserName())
                         .email(user.getEmail())
                         .address(user.getAddress())

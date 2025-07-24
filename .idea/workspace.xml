@@ -4,24 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="feat: 添加项目版本控制目录映射">
-      <change beforePath="$PROJECT_DIR$/.idea/AugmentWebviewStateStore.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AugmentWebviewStateStore.xml" afterDir="false" />
+    <list default="true" id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.cache/.Apifox_Helper/.toolWindow.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/AddCategroyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetCategoryByIdDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetNoteByIdDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/UpdateCategroyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetCategoryByIdVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/NoteListItemVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-user-management/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-user-management/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-user-management/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-user-management/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-user-management/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-user-management/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-user-management/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-user-management/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-user-management/src/views/AllUsers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-user-management/src/views/AllUsers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/NoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/TagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/TagController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/enums/ResponseCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/enums/ResponseCodeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/exception/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/Note.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dataobject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetUserByIdDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/GetUserByIdDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/UpdateUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/UpdateUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/UserListItemVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/UserListItemVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/response/Response.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/UpdateUserVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/NoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/NoteServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +56,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Hehongtao99/duoren.git&quot;,
-    &quot;accountId&quot;: &quot;fdd35124-8e19-48bf-9f3a-87cd1b48dc08&quot;
+    &quot;accountId&quot;: &quot;3d8c621f-870c-43c8-9f78-9bf6390f2c26&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -58,8 +66,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="customMavenHome" value="D:\apache-maven-3.9.9" />
-        <option name="localRepository" value="D:\apache-maven-3.9.9\rep" />
+        <option name="customMavenHome" value="D:\apache-maven-3.9.0" />
         <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
         <option name="userSettingsFile" value="D:\apache-maven-3.9.0\conf\settings.xml" />
       </MavenGeneralSettings>
@@ -69,7 +76,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="30D5dSMdQehAvzuk8d3RcV0qiom" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -87,7 +94,6 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/37602/Desktop/duoren1/测试/src/main/java/com/example/demo&quot;,
@@ -99,10 +105,10 @@
     &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;npm.serve.executor&quot;: &quot;Run&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -116,7 +122,7 @@
       <recent name="com.example.demo.enums" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.DemoApplication">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="demo" />
@@ -125,7 +131,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/vue-user-management/package.json" />
       <command value="run" />
       <scripts>
@@ -135,8 +141,30 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/user-management-frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue-user-management/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev (1)" />
+        <item itemvalue="npm.serve" />
         <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
@@ -144,14 +172,12 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="StructureViewState">
-    <option name="selectedTab" value="Logical" />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="" />
@@ -161,33 +187,10 @@
       <updated>1753149390317</updated>
       <workItem from="1753149391943" duration="4637000" />
       <workItem from="1753192412236" duration="335000" />
-      <workItem from="1753260175834" duration="895000" />
-      <workItem from="1753280001891" duration="3090000" />
-      <workItem from="1753283186830" duration="1678000" />
-      <workItem from="1753322437863" duration="652000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 添加项目版本控制目录映射" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加项目版本控制目录映射" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

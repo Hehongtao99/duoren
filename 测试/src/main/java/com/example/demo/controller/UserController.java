@@ -1,15 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.common.PageResult;
-import com.example.demo.model.dataobject.User;
 import com.example.demo.model.dto.*;
 
 import com.example.demo.model.vo.GetUserByIdVO;
 import com.example.demo.model.vo.GetUserNameByIdVO;
-import com.example.demo.model.vo.UpdateUserVO;
 import com.example.demo.model.vo.UserListItemVO;
 import com.example.demo.service.UserService;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.common.Result;

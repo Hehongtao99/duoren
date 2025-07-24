@@ -22,7 +22,7 @@ public class Category {
      * 主键ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Integer categoryId;
 
     /**
      * 分类名称
