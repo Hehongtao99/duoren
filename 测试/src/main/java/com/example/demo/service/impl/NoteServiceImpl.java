@@ -17,10 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 文章Service实现类
@@ -37,6 +35,10 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private NoteTagMapper noteTagMapper;
+    @Autowired
+    private TagMapper tagMapper;
 
     @Override
     public Result<List<NoteListItemVO>> NotelistItem() {
@@ -69,6 +71,50 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
             throw new BizException(ResponseCodeEnum.PAGE_NOT_FOUND);
         }
 
+        //获取所有笔记id
+        List<Integer> noteIds = notePage1.getRecords().stream().map(Note::getId).toList();
+
+        //批量查询标签关联关系,查询所有noteTag的条目
+        LambdaQueryWrapper<NoteTag> noteTagLambdaQueryWrapper=new LambdaQueryWrapper<>();
+        noteTagLambdaQueryWrapper.in(NoteTag::getNoteId,noteIds);
+        List<NoteTag> noteTags = noteTagMapper.selectList(noteTagLambdaQueryWrapper);
+
+        //获取所有标签ID，去重
+        List<Integer> tagIds = noteTags.stream().map(NoteTag::getTagId).distinct().toList();
+
+
+        //todo
+
+        //批量查询标签信息，并将标签数据转换为tagId到tagName的映射
+        Map<Integer, String> tagMap = new HashMap<>();
+        if(!tagIds.isEmpty()){
+            LambdaQueryWrapper<Tag> tagLambdaQueryWrapper = new LambdaQueryWrapper<>();
+            tagLambdaQueryWrapper.in(Tag::getId,tagIds);
+//            Tag{id=5, tagName="Java", ...},
+//            Tag{id=8, tagName="Spring", ...}
+            List<Tag> tags = tagMapper.selectList(tagLambdaQueryWrapper);
+            //转为map
+            tagMap = tags.stream().collect(Collectors.toMap(Tag::getId, Tag::getTagName));
+
+        }
+
+        // 构建 noteId -> [tagName1, tagName2,...] 的映射
+        Map<Integer, List<String>> noteTagMap = new HashMap<>();
+
+        noteTags.forEach(noteTag -> {
+            // 1. 获取或创建该noteId对应的标签列表
+            List<String> tagNames = noteTagMap.computeIfAbsent(
+                    noteTag.getNoteId(),
+                    k -> new ArrayList<>()
+            );
+
+            // 2. 从tagMap中获取标签名并添加到列表
+            String tagName = tagMap.get(noteTag.getTagId());
+            if (tagName != null) {  // 防止tagMap中找不到对应的tagName
+                tagNames.add(tagName);
+            }
+        });
+
 
         Map<Integer,String> userMap = new HashMap<>();
         List<Integer> Ids = notePage1.getRecords().stream().map(Note::getUserId).toList();
@@ -90,6 +136,8 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
             }
             categoryMap.put(categoryId1,category.getCategoryName());
         });
+
+
 
         List<NoteListItemVO> collect = notePage1.getRecords().stream().map(note -> NoteListItemVO.builder()
                         .id(note.getId())

@@ -16,47 +16,29 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoteListItemVO {
+public class TagListItemVO {
     /**
      * 主键ID
      */
+
     private Integer id;
 
     /**
-     * 笔记名称
+     * 标签名称
      */
 
-    private String noteName;
+    private String tagName;
 
-    /**
-     * 创建用户ID
-     */
-
-//    private Integer Id;
-
-    private String userName;
-//    /**
-//     * 内容详情ID
-//     */
-//
-//    private Integer contentDetailId;
-
-//    /**
-//     * 分类ID
-//     */
-//
-//    private Integer categoryId;
-
-    private String categoryName;
     /**
      * 创建时间
      */
-    private List<String> tagNames;
+
     private LocalDateTime createTime;
 
-//    /**
-//     * 更新时间
-//     */
-//
-//    private LocalDateTime updateTime;
+    /**
+     * 更新时间
+     */
+
+    private LocalDateTime updateTime;
+
 }

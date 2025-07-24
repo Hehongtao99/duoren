@@ -27,7 +27,6 @@ public class NoteController {
     public Result<List<NoteListItemVO>> listResult(){
         return noteService.NotelistItem();
     }
-//
 
     /**
      * 分页查询文章
