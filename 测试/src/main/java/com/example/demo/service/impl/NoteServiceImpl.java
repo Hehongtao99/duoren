@@ -10,12 +10,18 @@ import com.example.demo.enums.ResponseCodeEnum;
 import com.example.demo.exception.BizException;
 import com.example.demo.mapper.*;
 import com.example.demo.model.dataobject.*;
+import com.example.demo.model.dto.AddNoteDTO;
+import com.example.demo.model.dto.GetNoteByIdDTO;
 import com.example.demo.model.dto.NotePageQueryDTO;
+import com.example.demo.model.dto.UpdateNoteDTo;
+import com.example.demo.model.vo.NoteDetailVO;
 import com.example.demo.model.vo.NoteListItemVO;
 import com.example.demo.service.NoteService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -39,6 +45,8 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
     private NoteTagMapper noteTagMapper;
     @Autowired
     private TagMapper tagMapper;
+    @Autowired
+    private NoteDetailMapper noteDetailMapper;
 
     @Override
     public Result<List<NoteListItemVO>> NotelistItem() {
@@ -101,39 +109,6 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
         });
 
 
-//        //获取所有标签ID，去重
-//        List<Integer> tagIds = noteTags.stream().map(NoteTag::getTagId).distinct().toList();
-//
-//        //批量查询标签信息，并将标签数据转换为tagId到tagName的映射
-//        Map<Integer, String> tagMap = new HashMap<>();
-//        if(!tagIds.isEmpty()){
-//            LambdaQueryWrapper<Tag> tagLambdaQueryWrapper = new LambdaQueryWrapper<>();
-//            tagLambdaQueryWrapper.in(Tag::getId,tagIds);
-////            Tag{id=5, tagName="Java", ...},
-////            Tag{id=8, tagName="Spring", ...}
-//            List<Tag> tags = tagMapper.selectList(tagLambdaQueryWrapper);
-//            //转为map
-//            tagMap = tags.stream().collect(Collectors.toMap(Tag::getId, Tag::getTagName));
-//
-//        }
-//
-//        // 构建 noteId -> [tagName1, tagName2,...] 的映射
-//        Map<Integer, List<String>> noteTagMap = new HashMap<>();
-//
-//        noteTags.forEach(noteTag -> {
-//            // 1. 获取或创建该noteId对应的标签列表
-//            List<String> tagNames = noteTagMap.computeIfAbsent(
-//                    noteTag.getNoteId(),
-//                    k -> new ArrayList<>()
-//            );
-//
-//            // 2. 从tagMap中获取标签名并添加到列表
-//            String tagName = tagMap.get(noteTag.getTagId());
-//            if (tagName != null) {  // 防止tagMap中找不到对应的tagName
-//                tagNames.add(tagName);
-//            }
-//        });
-
 
         Map<Integer,String> userMap = new HashMap<>();
         List<Integer> Ids = notePage1.getRecords().stream().map(Note::getUserId).toList();
@@ -170,4 +145,124 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
 
         return PageResult.success(notePage1, collect);
     }
+
+    @Override
+    public Result<NoteDetailVO> noteDetail(GetNoteByIdDTO getNoteByIdDTO) {
+        Note note = noteMapper.selectById(getNoteByIdDTO.getId());
+        if (Objects.isNull(note)) {
+            throw new BizException(ResponseCodeEnum.NOTE_NOT_FOUND);
+        }
+
+        // 2. 查询详情表
+        NoteDetail noteDetail = noteDetailMapper.selectById(note.getContentDetailId());
+        if (Objects.isNull(noteDetail)) {
+            throw new BizException(ResponseCodeEnum.NOTE_CONTENT_EMPTY);
+        }
+
+        User userName = userMapper.selectById(note.getUserId());
+
+        Category category = categoryMapper.selectById(note.getCategoryId());
+
+        // 1. 查询笔记关联的所有标签ID
+        List<NoteTag> noteTags = noteTagMapper.selectList(
+                new LambdaQueryWrapper<NoteTag>()
+                        .eq(NoteTag::getNoteId, note.getId())
+        );
+
+// 2. 获取所有标签ID并去重
+        List<Integer> tagIds = noteTags.stream()
+                .map(NoteTag::getTagId)
+                .distinct()
+                .toList();
+
+// 3. 批量查询标签对象
+        List<Tag> tags = tagMapper.selectBatchIds(tagIds);
+
+// 4. 提取标签名称集合
+        List<String> tagNames = tags.stream()
+                .map(Tag::getTagName)
+                .toList();
+
+        // 3. 构建VO（使用查询到的noteDetail1的时间字段）
+        NoteDetailVO vo = NoteDetailVO.builder()
+                .noteContent(noteDetail.getNoteContent())
+                .userName(userName.getUserName())
+                .tagNames(tagNames)
+                .categoryName(category.getCategoryName())
+                .createTime(noteDetail.getCreateTime())
+                .updateTime(noteDetail.getUpdateTime())
+                .build();
+
+        return Result.success(vo);  // 返回单个对象
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class) // 保持事务
+    public Result<?> add(AddNoteDTO addNoteDTO) {
+        // 1. 根据分类名查询分类
+        Category category = categoryMapper.selectOne(
+                new LambdaQueryWrapper<Category>()
+                        .eq(Category::getCategoryName, addNoteDTO.getCategoryName().trim())
+        );
+
+        // 2. 插入详情表
+        NoteDetail detail = NoteDetail.builder()
+                .noteContent(addNoteDTO.getNoteContent())
+                .build();
+        noteDetailMapper.insert(detail);
+
+        // 3. 插入主表
+        Note note = Note.builder()
+                .noteName(addNoteDTO.getNoteName())
+                .categoryId(category.getCategoryId())
+                .contentDetailId(detail.getId())
+                .build();
+        noteMapper.insert(note);
+
+        // 4. 处理标签（逐条插入）
+        addNoteDTO.getTagNames().forEach(tagName -> {
+            Tag tag = tagMapper.selectOne(
+                    new LambdaQueryWrapper<Tag>()
+                            .eq(Tag::getTagName, tagName.trim())
+            );
+            noteTagMapper.insert(
+                    NoteTag.builder()
+                            .noteId(note.getId())
+                            .tagId(tag.getId())
+                            .build()
+            );
+        });
+
+        return Result.success("添加成功");
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Result<?> update(UpdateNoteDTo updateNoteDTo) {
+
+        return null;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Result<?> delete(GetNoteByIdDTO getNoteByIdDTO) {
+
+        Note note = noteMapper.selectById(getNoteByIdDTO.getId());
+
+        if(Objects.isNull(note)){
+            throw new BizException(ResponseCodeEnum.NOTE_NOT_FOUND);
+        }
+
+        noteMapper.deleteById(getNoteByIdDTO.getId());
+
+        noteDetailMapper.deleteById(note.getContentDetailId());
+
+        noteTagMapper.delete(
+                new LambdaQueryWrapper<NoteTag>()
+                        .eq(NoteTag::getNoteId, getNoteByIdDTO.getId())
+        );
+
+        return Result.success("删除成功");
+    }
+
 }

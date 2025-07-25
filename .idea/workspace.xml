@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75693724-ef38-4e46-aafe-ae5f53286fcf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/AddNoteDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/dto/UpdateNoteDTo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/NoteDetailVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.cache/.Apifox_Helper/.toolWindow.db" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.cache/.Apifox_Helper/.toolWindow.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/NoteListItemVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/NoteListItemVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/测试/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/controller/NoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetUserNameByIdVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/model/vo/GetUserNameByIdVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/NoteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/测试/src/main/java/com/example/demo/service/impl/NoteServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +60,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="30D5dSMdQehAvzuk8d3RcV0qiom" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -87,7 +93,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "MavenSettings",
-    "ts.external.directory.path": "D:\\IntelliJ IDEA 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "D:\\IntelliJ IDEA 2025.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -166,20 +172,30 @@
       <workItem from="1753149391943" duration="4637000" />
       <workItem from="1753192412236" duration="335000" />
     </task>
+    <task id="LOCAL-00001" summary="//todo">
+      <option name="closed" value="true" />
+      <created>1753340891786</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753340891786</updated>
+    </task>
+    <task id="LOCAL-00002" summary="//todo">
+      <option name="closed" value="true" />
+      <created>1753341361333</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753341361333</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="//todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="//todo" />
   </component>
 </project>
