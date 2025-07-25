@@ -79,41 +79,60 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
         noteTagLambdaQueryWrapper.in(NoteTag::getNoteId,noteIds);
         List<NoteTag> noteTags = noteTagMapper.selectList(noteTagLambdaQueryWrapper);
 
-        //获取所有标签ID，去重
-        List<Integer> tagIds = noteTags.stream().map(NoteTag::getTagId).distinct().toList();
 
+        Map<Integer, List<Integer>> noteTagMap = noteTags.stream().collect(
+                Collectors.groupingBy(
+                        NoteTag::getNoteId,
+                        Collectors.mapping(
+                                NoteTag::getTagId,
+                                Collectors.toList()
+                        )
+                )
+        );
 
-        //todo
-
-        //批量查询标签信息，并将标签数据转换为tagId到tagName的映射
-        Map<Integer, String> tagMap = new HashMap<>();
-        if(!tagIds.isEmpty()){
-            LambdaQueryWrapper<Tag> tagLambdaQueryWrapper = new LambdaQueryWrapper<>();
-            tagLambdaQueryWrapper.in(Tag::getId,tagIds);
-//            Tag{id=5, tagName="Java", ...},
-//            Tag{id=8, tagName="Spring", ...}
-            List<Tag> tags = tagMapper.selectList(tagLambdaQueryWrapper);
-            //转为map
-            tagMap = tags.stream().collect(Collectors.toMap(Tag::getId, Tag::getTagName));
-
-        }
-
-        // 构建 noteId -> [tagName1, tagName2,...] 的映射
-        Map<Integer, List<String>> noteTagMap = new HashMap<>();
-
-        noteTags.forEach(noteTag -> {
-            // 1. 获取或创建该noteId对应的标签列表
-            List<String> tagNames = noteTagMap.computeIfAbsent(
-                    noteTag.getNoteId(),
-                    k -> new ArrayList<>()
-            );
-
-            // 2. 从tagMap中获取标签名并添加到列表
-            String tagName = tagMap.get(noteTag.getTagId());
-            if (tagName != null) {  // 防止tagMap中找不到对应的tagName
-                tagNames.add(tagName);
-            }
+        //构建noteId和tagName的映射
+        Map<Integer, List<String>> noteTagMap1 = new HashMap<>();
+        noteIds.forEach(noteId -> {
+                    List<Integer> tagIds = noteTagMap.get(noteId);
+                    if(Objects.nonNull(tagIds)){
+                        List<String> tagNames = tagIds.stream().map(tagId -> tagMapper.selectById(tagId).getTagName()).toList();
+                        noteTagMap1.put(noteId,tagNames);
+                        }
         });
+
+
+//        //获取所有标签ID，去重
+//        List<Integer> tagIds = noteTags.stream().map(NoteTag::getTagId).distinct().toList();
+//
+//        //批量查询标签信息，并将标签数据转换为tagId到tagName的映射
+//        Map<Integer, String> tagMap = new HashMap<>();
+//        if(!tagIds.isEmpty()){
+//            LambdaQueryWrapper<Tag> tagLambdaQueryWrapper = new LambdaQueryWrapper<>();
+//            tagLambdaQueryWrapper.in(Tag::getId,tagIds);
+////            Tag{id=5, tagName="Java", ...},
+////            Tag{id=8, tagName="Spring", ...}
+//            List<Tag> tags = tagMapper.selectList(tagLambdaQueryWrapper);
+//            //转为map
+//            tagMap = tags.stream().collect(Collectors.toMap(Tag::getId, Tag::getTagName));
+//
+//        }
+//
+//        // 构建 noteId -> [tagName1, tagName2,...] 的映射
+//        Map<Integer, List<String>> noteTagMap = new HashMap<>();
+//
+//        noteTags.forEach(noteTag -> {
+//            // 1. 获取或创建该noteId对应的标签列表
+//            List<String> tagNames = noteTagMap.computeIfAbsent(
+//                    noteTag.getNoteId(),
+//                    k -> new ArrayList<>()
+//            );
+//
+//            // 2. 从tagMap中获取标签名并添加到列表
+//            String tagName = tagMap.get(noteTag.getTagId());
+//            if (tagName != null) {  // 防止tagMap中找不到对应的tagName
+//                tagNames.add(tagName);
+//            }
+//        });
 
 
         Map<Integer,String> userMap = new HashMap<>();
@@ -144,6 +163,7 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
                         .noteName(note.getNoteName())
                         .userName(userMap.get(note.getUserId()))
                         .categoryName(categoryMap.get(note.getCategoryId()))
+                        .tagNames(noteTagMap1.get(note.getId()))
                         .createTime(note.getCreateTime())
                         .build())
                 .toList();
